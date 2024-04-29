@@ -1,0 +1,49 @@
+```mermaid
+graph TD
+
+    subgraph ActivATE
+      SoftCare["Soft Care"];
+      SBC;
+      otherdevices["Other Drivers"];
+    end
+
+    subgraph dutsvr
+      image;
+    end
+
+    subgraph Assemblies
+
+      subgraph Washington
+        washington;
+      end
+
+      subgraph Production
+        production;
+      end
+
+      subgraph Edt
+        edt;
+      end
+
+      subgraph Proteus
+        proteus;
+      end
+
+      subgraph OtherSystems
+        otherSystems;
+      end
+
+    end
+  
+    subgraph EndDevices
+      SBCs;
+      AIDevices["AI Devices"];
+      USBGadgets["USB Gadgets"];
+      EDT;
+    end
+
+  ActivATE ==>|TCP / IP| dutsvr;
+  EndDevices <==> dutsvr;
+  Assemblies ==> |Load Dynamically| dutsvr;
+  dutsvr ~~~ Assemblies;
+```
